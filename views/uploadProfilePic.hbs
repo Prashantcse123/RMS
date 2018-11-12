@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile Picture Uploads</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/css/crop.css"></script>
+<script src="/css/cropper.min.css"></script>
+<script src="/js/cropper.min.js"></script>
+<script src="/js/crop.js"></script>
+    <style>
+     button{
+         color:black;
+         background-color: aqua;
+         border: 1px solid blue;
+         border-radius:4px;
+         height: 20px;
+         width: 400px
+     }
+
+     h1{
+         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+         font-size: 20px;
+     }
+     #frame{
+         height: 100px;
+         width: 400px;
+         border-radius: 5px;
+         background-color: aquamarine;
+         display:block
+     }
+     body{
+         background-color: rgb(51, 171, 187)
+     }
+
+    </style>
+</head>
+
+<center>
+    <h1>Profile Picture Upload</h1>
+</center>
+<body>
+<center>
+    <div id="frame">
+    <br><br>
+    <form method="POST" enctype="multipart/form-data">
+    <input type="file" id="profilePic" onchange='loadImage()' name="profilePic" placeholder="select the profile picture from your disk">
+     <br><br>
+    <button id="upload" name="upload" formaction="/users/uploadpic"><strong>Upload Picture</strong></button>
+    </form>
+    </div>
+    <div>
+        <img id="image" src="#">
+    </div>
+</center>
+</body>
+</html>

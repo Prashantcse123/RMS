@@ -1,0 +1,50 @@
+
+<head>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYzXj5wF4L6mChyyc5xwfb2QT1QEZ9VN8&libraries=places&sensor=false">
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+</script>
+  <script type="text/javascript"> 
+function GetLatlong()
+    {
+        var geocoder = new google.maps.Geocoder();
+        var address = document.getElementById('searchinput').value;
+        geocoder.geocode({ 'address': address }, function (results, status) {
+
+            if (status == google.maps.GeocoderStatus.OK) {
+                var latitude = results[0].geometry.location.lat();
+                var longitude = results[0].geometry.location.lng();
+                document.getElementById('lat').value=latitude;
+                document.getElementById('lng').value=longitude;
+            }
+     });
+     
+    }
+</script>
+
+<h1>Show Places</h1>
+<form method="POST">
+<input type="text" id="searchinput" name="searchinput" placeholder="Search Places..." oninput="GetLatlong()"><br>
+Latitude:<input type="text" id="lat" name="lat"><br>
+Longitude:<input type="text" id="lng" name="lng">
+<script>
+
+  var searchBox = new google.maps.places.SearchBox(document.getElementById('searchinput'));
+
+  google.maps.event.addListener(searchBox, 'places_changed', function() {
+    var place = searchBox.getPlaces()[0];
+   
+    if (!place.geometry) return;
+
+    if (place.geometry.viewport) {
+      map.fitBounds(place.geometry.viewport);
+    } else {
+      map.setCenter(place.geometry.location);
+      map.setZoom(16);
+    }
+  });
+
+</script>
+
+<button formaction="/controller/showRestaurentNearMyPlace">Get Restaurent Near me</button>
+</form>

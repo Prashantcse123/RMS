@@ -1,0 +1,97 @@
+<img src="{{data.restImage}}" height='200' width='200' alt="Restaurent Image" />
+<br>
+<form action="/controller/uploadImage/{{data.id}}" method="POST" enctype="multipart/form-data">
+    <br> Upload Image of Restaurent:
+    <br>
+    <input type="file" id="image" name="image">
+    <br>
+    <input type="submit" value="upload_image">
+    <br>
+</form>
+<h1>{{data.restName}}</h1>
+<h3>{{data.restAddress}}</h2>
+    <h3>{{data.restType}}</h2>
+        <h4>Owner:{{data.restOwner}}</h2>
+            <h4>Contact No:{{data.restPhone}}</h4>
+            <br>
+            <br>
+            <br> like by:
+            <br>
+            <table border="2">
+                <tr>
+                    <th>
+                        ......
+                    </th>
+                    <th>
+                        Name:
+                    </th>
+                    <th>
+                        Email:
+                    </th>
+                </tr>
+                {{#each data.likes}}
+                <tr>
+                    <td>
+                        <img src={{this.profilePicPath}} height="50" width="50" />
+                    </td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.email}}</td>
+                </tr>
+                {{/each}}
+            </table>
+            <br>
+            <br>
+            <br> unlike by:
+            <br>
+            <table border="2">
+                <tr>
+                    <th>
+                        ......
+                    </th>
+                    <th>
+                        Name:
+                    </th>
+                    <th>
+                        Email:
+                    </th>
+                </tr>
+                {{#each data.dislikes}}
+                <tr>
+                    <td>
+                        <img src={{this.profilePicPath}} height="50" width="50" />
+                    </td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.email}}</td>
+                </tr>
+                {{/each}}
+            </table>
+            <br>
+            <br>
+            <br> comments:
+            <br>
+            <table border="2">
+                <tr>
+                    <th>
+                        ........
+                    </th>
+                    <th>
+                        comment
+                    </th>
+                    <th>
+                        Name:
+                    </th>
+                    <th>
+                        Email:
+                    </th>
+                </tr>
+                {{#each data.comment}}
+                <tr>
+                    <td>
+                        <img src={{this.userID.profilePicPath}} height="50" width="50" />
+                    </td>
+                    <td>{{this.commentText}}</td>
+                    <td>{{this.userID.name}}</td>
+                    <td>{{this.userID.email}}</td>
+                </tr>
+                {{/each}}
+            </table>

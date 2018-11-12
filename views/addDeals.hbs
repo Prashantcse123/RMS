@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Deals</title>
+    <link rel="stylesheet" href="../public/css/bootstrap.css">
+</head>
+{{deal}}
+<body>
+    <form action="/deal/insertDeal" method="POST">
+         <table>
+<tr>
+    <td>
+       <label for="dealCode">Deal Code</label>
+    </td>
+    <td>
+      <input type="text" name="dealCode" placeholder="Enter Deal Coupon Code">
+    </td>
+</tr>
+<tr>
+    <td>
+       <label for="dealDescription">Description</label>
+    </td>
+    <td>
+      <input type="text" name="dealDescription" placeholder="Enter Deal Description">
+    </td>
+</tr>
+<tr>
+    <td>
+       <label for="dealDiscount">Discount</label>
+    </td>
+    <td>
+      <input type="text" name="dealDiscount" placeholder="Enter Deal Discount in %">
+      <input type="hidden" name="dealRestaurentId" value='{{restId}}'>
+    </td>
+</tr>
+<tr>
+    <td>
+    </td>
+    <td>
+      <input type="submit" value="Insert">
+    </td>
+</tr>
+         </table>
+    </form>
+
+    <a href="/deal/showAllDeal">Show All Deals</a>
+</body>
+</html>

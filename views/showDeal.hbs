@@ -1,0 +1,17 @@
+<h1>
+    {{RestaurentName}}</h1>
+<table>
+    <tr>
+        <th>Deal Code</th>
+        <th>Description</th>
+        <th>Discount</th>
+    </tr>
+    {{#each deals}}
+    <tr></tr>
+    <td>{{this.dealCode}}</td>
+    <td>{{this.dealDescription}}</td>
+    <td>{{this.dealDiscount}}</td>
+    </tr>
+    {{/each}}
+
+</table>

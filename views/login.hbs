@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Page</title>
+    <script>
+        let params = (new URL(document.location)).searchParams;
+        let name = params.get("status");
+        if(name){
+        document.write(name)
+        }
+    </script>
+    <style>
+        form {
+            border: 4px solid blue;
+            border-radius: 5px;
+            display: block;
+            padding: 10px;
+            background-color: gold;
+            height: 100px;
+            width: 300px;
+        }
+
+        body {
+            background-color: darkkhaki
+        }
+    </style>
+</head>
+
+<body>
+
+    <center>
+        <h1 style="color:deeppink; font-family: Georgia, 'Times New Roman', Times, serif">Indore Restaurent</h1>
+        <h2 style="color:lime; font-family:Verdana, Geneva, Tahoma, sans-serif">Order food online in indore city</h2>
+        <h3>Sign In</h3>
+        <form method="POST" action="/auth/login">
+            <table>
+                <tr>
+                    <td>User Name:</td>
+                    <td>
+                        <input name="username" id="username" type="text" placeholder="Enter User Name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input name="password" id="password" type="text" placeholder="Enter Password">
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                        <input type="submit" value="Login">
+                    </td>
+                </tr>
+                <tr>
+                    Not Registered???
+                    <a href="/signup">Register</a>
+                </tr>
+                <tr>
+                    <p id="message" name="message"></p>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>
